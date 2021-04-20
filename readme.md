@@ -9,7 +9,7 @@ I have tried to solve this problem in 2 Approaches:
 
 - By Writing to Temporary table in DB and Update/Add New Records of using the temp tables DB Side asynchronously and drop the temp tables.
 
-Submitted the 1st Approach as Solution.
+Submitted the 1st Approach as Solution. 2nd Approach Methods are also present in same code but commented out from execution in PipelineFlow Class. 
 
 ## Prerequisites
 
