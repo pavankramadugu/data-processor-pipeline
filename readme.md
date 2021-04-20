@@ -5,13 +5,13 @@ Application to run large Data Ingestion processes in a Distributed Fashion.
 ## Approach
 I have tried to solve this problem in 2 Approaches:
 
-- By Traversing through Partitons of Dataframe and Doing Parallel Batch Upsert.`main branch
+- By Traversing through Partitions of Dataframe and Doing Parallel Batch Upsert `main branch`
 
-- By Writing to Temporary table in DB and Update/Add New Records of two tables DB Side asynchronously.`master branch`
+- By Writing to Temporary table in DB and Update/Add New Records of two tables DB Side asynchronously `master branch`
 
 ## Prerequisites
 
-- Need [Docker Desktop](https://www.docker.com/products/docker-desktop) Installed on your  Machine and it should be Up and Running.
+- Need [Docker Desktop](https://www.docker.com/products/docker-desktop) Installed on your  Machine, and it should be Up and Running.
 - [Java 8/11](https://jdk.java.net/archive/)
 - Package Manager [Maven](https://maven.apache.org/download.cgi) to Build Jar with Dependencies.
 
@@ -36,8 +36,8 @@ docker-compose up
 - [Apache Spark 3.1.1]() Framework to leverage Distributed Computing.
 - [Postgres](https://www.postgresql.org/download/) as Data Store.
 ## Database Schema
-![Product Schema](products-schema.PNG)
-![Aggregate Schema](aggregate-schema.PNG)
+![Product Schema](images/products-schema.PNG)
+![Aggregate Schema](images/aggregate-schema.PNG)
 ## Database Scripts
 ### Table Creation
 Check if Exists else Create.
@@ -66,6 +66,17 @@ INSERT INTO aggregate (name, "no. of products")
             VALUES (?, ?) ON CONFLICT (name) DO UPDATE
             SET "no. of products" = EXCLUDED."no. of products";
 ```
+### Tables Info
+
+- Products table Entries count `466,693`.
+
+   ![Products_Top10](images/top10products.PNG)
+
+
+- Aggregate table Entries count `212,630`.
+
+   ![Aggregate Top10](images/top10aggregate.PNG) 
+
 
 ### Points Achieved
 - Followed Oops Concepts in designing Application and Also Used Asynchrnous Programming.
