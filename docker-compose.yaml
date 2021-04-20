@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  db:
+  postgres-database:
     image: postgres:latest
     restart: always
     ports:
@@ -12,7 +12,13 @@ services:
       - POSTGRES_DB=products-db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=9999
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 7s
+      timeout: 5s
+      retries: 3
   app:
     image: data-processor:latest
     depends_on:
-      - db
+      postgres-database:
+        condition: service_healthy
