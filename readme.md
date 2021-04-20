@@ -7,7 +7,9 @@ I have tried to solve this problem in 2 Approaches:
 
 - By Traversing through Partitions of Dataframe and Doing Parallel Batch Upsert `main branch`
 
-- By Writing to Temporary table in DB and Update/Add New Records of two tables DB Side asynchronously `master branch`
+- By Writing to Temporary table in DB and Update/Add New Records of using the temp tables DB Side asynchronously and drop the temp tables.
+
+Submitted the 1st Approach as Solution.
 
 ## Prerequisites
 
