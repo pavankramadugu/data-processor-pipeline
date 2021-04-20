@@ -2,6 +2,13 @@
 
 Application to run large Data Ingestion processes in a Distributed Fashion.
 
+## Approach
+I have tried to solve this problem in 2 Approaches:
+
+- By Traversing through Partitons of Dataframe and Doing Parallel Batch Upsert.`main branch
+
+- By Writing to Temporary table in DB and Update/Add New Records of two tables DB Side asynchronously.`master branch`
+
 ## Prerequisites
 
 - Need [Docker Desktop](https://www.docker.com/products/docker-desktop) Installed on your  Machine and it should be Up and Running.
@@ -59,3 +66,23 @@ INSERT INTO aggregate (name, "no. of products")
             VALUES (?, ?) ON CONFLICT (name) DO UPDATE
             SET "no. of products" = EXCLUDED."no. of products";
 ```
+
+### Points Achieved
+- Followed Oops Concepts in designing Application and Also Used Asynchrnous Programming.
+
+- Supports Upsertion of data, without truncating the products table.
+
+- Supports Parallell Non Blocking Data Ingestion.
+
+- Can Update the Products table with 'sku' as Primary Key.
+
+- All the Products are ingested into a single table `Products`.
+
+- An Aggregated table with columns `name` and `no. of products` of name `Aggregate` has been created in database.
+
+### Things that can be improved if had more days
+- I would have extensively explored the effect of partitoning by running in cluster like environment.
+
+- Would have worked on testing performance difference betwwen Partiton Based Upsertion approach and DB Side Temporary Table approach.
+
+- Would have tested pipeline performance between Relational Databases and Nosql Distributed Databases like Cassandra etc, 
