@@ -29,7 +29,8 @@ docker-compose up
 - [Apache Spark 3.1.1]() Framework to leverage Distributed Computing.
 - [Postgres](https://www.postgresql.org/download/) as Data Store.
 ## Database Schema
-
+![Product Schema](products-schema.PNG)
+![Aggregate Schema](aggregate-schema.PNG)
 ## Database Scripts
 ### Table Creation
 Check if Exists else Create.
