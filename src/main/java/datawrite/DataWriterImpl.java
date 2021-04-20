@@ -68,4 +68,12 @@ public class DataWriterImpl implements DataWriter, Serializable {
             }
         });
     }
+
+    @Override
+    public void dbWrite(Properties connectionProperties, Dataset<Row> dataset, String tableName) {
+        dataset.write().mode("append")
+                .option("numPartitions ", 200)
+                .jdbc(connectionProperties.getProperty("url"),
+                        tableName, connectionProperties);
+    }
 }

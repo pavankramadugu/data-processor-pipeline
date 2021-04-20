@@ -11,4 +11,5 @@ public interface DataWriter {
 
     void aggregateUpsert(Properties connectionProperties, Dataset<Row> dataset);
 
+    void dbWrite(Properties connectionProperties, Dataset<Row> dataset, String tableName);
 }
